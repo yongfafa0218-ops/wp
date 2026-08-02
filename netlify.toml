@@ -1,0 +1,33 @@
+# Netlify 배포 설정 — 정적 UI + 서버리스 함수
+[build]
+  publish = "."
+
+# 함수 디렉터리 명시 (Git/CLI 배포 시 확실하게 인식됨)
+[functions]
+  directory = "netlify/functions"
+
+# UI가 쓰는 API 경로 → 서버리스 함수로 매핑 (동일 도메인이라 CORS 불필요)
+[[redirects]]
+  from = "/health"
+  to = "/.netlify/functions/health"
+  status = 200
+
+[[redirects]]
+  from = "/autocomplete"
+  to = "/.netlify/functions/autocomplete"
+  status = 200
+
+[[redirects]]
+  from = "/news"
+  to = "/.netlify/functions/news"
+  status = 200
+
+[[redirects]]
+  from = "/wp-test"
+  to = "/.netlify/functions/wp-test"
+  status = 200
+
+[[redirects]]
+  from = "/wp"
+  to = "/.netlify/functions/wp"
+  status = 200
