@@ -1,19 +1,38 @@
 @echo off
-chcp 65001 >nul
-title HoneyPot 프롬프트 브릿지
+title HoneyPot proxy (keep this window OPEN)
 cd /d "%~dp0"
 
+set "PYCMD="
+
+where py >nul 2>nul
+if %errorlevel%==0 set "PYCMD=py -3"
+
+if not defined PYCMD (
+  where python >nul 2>nul
+  if %errorlevel%==0 set "PYCMD=python"
+)
+
+if not defined PYCMD (
+  echo [ERROR] Python 3 was not found.
+  echo.
+  echo Fix: go to https://www.python.org/downloads/
+  echo      install Python, and CHECK "Add python.exe to PATH".
+  echo.
+  pause
+  exit /b 1
+)
+
 echo ============================================
-echo   HoneyPot 프록시 시작 (종료: 이 창 닫기)
-echo ============================================
-echo.
-echo 1) index.html을 브라우저에서 엽니다...
+echo  HoneyPot proxy is starting...
+echo  1) Opening index.html in your browser...
 start "" "index.html"
 
-echo 2) 프록시를 시작합니다. 창은 계속 열어두세요.
+echo  2) Proxy is running now.
+echo     KEEP THIS WINDOW OPEN. Closing it disconnects.
+echo     (You can minimize it.)
 echo.
-python proxy.py
+%PYCMD% -X utf8 proxy.py
 
 echo.
-echo 프록시가 종료되었습니다.
+echo Proxy stopped.
 pause

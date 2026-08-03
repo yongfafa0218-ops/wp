@@ -9,11 +9,11 @@
 역할:
   /health        → 상태 확인
   /autocomplete  → Google 자동완성 연관 키워드 (무료, API 키 불필요)
-  /news          → 네이버 뉴스 검색 (경쟁 분석 + 팩트체크용 최신 뉴스)
+  /news          → 구글 뉴스 RSS 검색 (경쟁 분석 + 팩트체크용 최신 뉴스)
   /wp            → 워드프레스 REST API 예약 발행 (애플리케이션 패스워드)
   /wp-test       → 워드프레스 연결 테스트
 
-※ 구글/네이버에 과도한 요청을 보내지 않도록 요청 간 최소 간격(기본 0.7초)을 두고,
+※ 구글에 과도한 요청을 보내지 않도록 요청 간 최소 간격(기본 0.7초)을 두고,
    결과를 메모리에 캐시합니다. 개인 로컬 용도로만 사용하세요.
 """
 import base64
@@ -26,6 +26,14 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+
+# Windows 콘솔에서 한글/이모지 출력 시 인코딩 에러로 죽는 것 방지
+if sys.platform == "win32":
+    for _s in (sys.stdout, sys.stderr):
+        try:
+            _s.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
 
 HOST, PORT = "127.0.0.1", 8787
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -70,50 +78,45 @@ def google_autocomplete(q):
     return kws[:12]
 
 
-# ---------------------------------------------------------------- 네이버 뉴스
-def strip_html(s):
-    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", s)).replace("새 창 열림", "").strip()
+# ---------------------------------------------------------------- 구글 뉴스 (무료 공식 RSS)
+import html as _html
+from email.utils import parsedate_to_datetime
 
 
-def naver_news(q):
-    url = ("https://search.naver.com/search.naver?where=news&query="
-           + urllib.parse.quote(q) + "&sm=tab_opt&sort=0")
+def google_news(q):
+    # 구글 뉴스 RSS — 정확 구문("키워드") 검색으로 관련 기사만 수집
+    # (퍼지 검색은 희귀 주제도 100건이 나와 신호가 죽으므로 따옴표 필수)
+    url = ("https://news.google.com/rss/search?q="
+           + urllib.parse.quote('"' + q + '"') + "&hl=ko&gl=KR&ceid=KR:ko")
     polite_wait()
     _, body = http_get(url)
-    html = body.decode("utf-8", "ignore")
+    xml = body.decode("utf-8", "ignore")
     items, seen = [], set()
-
-    # 신형(fender) 레이아웃 — href가 data-heatmap-target보다 앞에 옴
-    for m in re.finditer(r'<a[^>]*href="([^"]+)"[^>]*data-heatmap-target="\.tit"[^>]*>(.*?)</a>', html, re.S):
-        title = strip_html(m.group(2))
-        link = m.group(1)
-        if not title or link in seen:
+    for m in re.finditer(r"<item>(.*?)</item>", xml, re.S):
+        block = m.group(1)
+        tm = re.search(r"<title>(.*?)</title>", block, re.S)
+        if not tm:
             continue
-        seen.add(link)
-        items.append({"title": title, "link": link})
-
-    # 구형 레이아웃 대비
-    if not items:
-        for m in re.finditer(r'class="news_tit"[^>]*href="([^"]+)"[^>]*>(.*?)</a>', html, re.S):
-            title = strip_html(m.group(2))
-            link = m.group(1)
-            if not title or link in seen:
-                continue
-            seen.add(link)
-            items.append({"title": title, "link": link})
-
-    presses = [p for p in (strip_html(m.group(1)) for m in
-                           re.finditer(r'data-heatmap-target="\.prof"[^>]*>(.*?)</a>', html, re.S)) if p]
-    dates = re.findall(r'(?:\d+일 전|\d+시간 전|\d+분 전|\d{4}\.\d{2}\.\d{2})', html)
-
-    for i, it in enumerate(items[:12]):
-        if i < len(presses):
-            it["press"] = presses[i]
-        if i < len(dates):
-            it["date"] = dates[i]
-
-    total = len(items) if len(items) < 10 else "10+"
-    return {"total": total, "items": items[:8]}
+        title = _html.unescape(tm.group(1).strip())
+        if title in seen:
+            continue
+        seen.add(title)
+        sm = re.search(r"<source[^>]*>(.*?)</source>", block, re.S)
+        press = _html.unescape(sm.group(1).strip()) if sm else ""
+        if press and title.endswith(" - " + press):
+            title = title[: -(len(press) + 3)]
+        date = ""
+        dm = re.search(r"<pubDate>(.*?)</pubDate>", block, re.S)
+        if dm:
+            try:
+                dt = parsedate_to_datetime(dm.group(1).strip())
+                date = dt.astimezone().strftime("%Y.%m.%d")
+            except Exception:
+                date = ""
+        lm = re.search(r"<link>(.*?)</link>", block, re.S)
+        items.append({"title": title, "link": (lm.group(1).strip() if lm else ""),
+                      "press": press, "date": date})
+    return {"total": len(items), "items": items[:8]}
 
 
 # ---------------------------------------------------------------- 워드프레스
@@ -189,6 +192,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
+        # Chrome Private Network Access 대응 (https 페이지 → localhost 요청 시)
+        self.send_header("Access-Control-Allow-Private-Network", "true")
         self.send_header("Cache-Control", "no-store")
 
     def _json(self, obj, code=200):
@@ -221,7 +226,7 @@ class Handler(BaseHTTPRequestHandler):
                 kw = (q.get("q") or [""])[0].strip()
                 if not kw:
                     return self._json({"error": "q 파라미터가 필요합니다"}, 400)
-                res = cached("news:" + kw, 900, lambda: naver_news(kw))
+                res = cached("news:" + kw, 900, lambda: google_news(kw))
                 return self._json(res)
             if u.path == "/wp-test":
                 cfg = {k: (q.get(k) or [""])[0] for k in ("wpUrl", "wpUser", "wpPass")}
@@ -251,4 +256,12 @@ if __name__ == "__main__":
     print(f"🍯 HoneyPot 프록시 서버 시작 → http://{HOST}:{PORT}")
     print("   index.html을 브라우저로 열면 자동으로 이 프록시를 찾습니다.")
     print("   종료: Ctrl+C")
-    ThreadingHTTPServer((HOST, PORT), Handler).serve_forever()
+    try:
+        ThreadingHTTPServer((HOST, PORT), Handler).serve_forever()
+    except OSError as e:
+        print("")
+        print(f"[오류] 프록시 시작 실패: {e}")
+        print("→ 포트 8787이 이미 사용 중일 수 있습니다.")
+        print("  확인:  netstat -ano | findstr 8787")
+        print("  이미 HoneyPot을 실행 중이라면 이 창을 닫고 기존 창을 사용하세요.")
+        sys.exit(1)
