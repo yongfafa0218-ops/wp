@@ -7,9 +7,9 @@
 <link rel="icon" href="data:,">
 <style>
   :root{
-    --bg:#faf6ee; --card:#ffffff; --ink:#2b2118; --sub:#8a7a66; --line:#e8dfd0;
-    --honey:#f59e0b; --honey-d:#d97706; --honey-l:#fef3c7;
-    --ok:#059669; --warn:#d97706; --bad:#dc2626; --blue:#2563eb;
+    --bg:#f4f5fb; --card:#ffffff; --ink:#101828; --sub:#667085; --line:#e4e7ec;
+    --honey:#4f46e5; --honey-d:#4338ca; --honey-l:#eef2ff;
+    --ok:#059669; --warn:#b45309; --bad:#dc2626; --blue:#2563eb;
     --radius:14px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -40,19 +40,19 @@
   .tab-btn{border:1px solid var(--line); background:#fff; color:var(--sub); font-size:14px; font-weight:700;
            padding:10px 18px; border-radius:12px; cursor:pointer; transition:.15s;}
   .tab-btn.active{background:linear-gradient(135deg,var(--honey),var(--honey-d)); color:#fff; border-color:transparent;
-                  box-shadow:0 4px 12px rgba(245,158,11,.35);}
+                  box-shadow:0 4px 14px rgba(79,70,229,.28);}
   .tab-btn:hover:not(.active){border-color:var(--honey);}
   .tab{display:none;} .tab.active{display:block; animation:fade .2s;}
   @keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1;}}
 
   .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-        padding:20px; margin-bottom:16px; box-shadow:0 1px 3px rgba(0,0,0,.03);}
+        padding:20px; margin-bottom:16px; box-shadow:0 1px 2px rgba(16,24,40,.04), 0 1px 3px rgba(16,24,40,.06);}
   .card h2{font-size:16px; margin-bottom:12px; display:flex; align-items:center; gap:8px;}
   .card h2 .step-num{background:var(--honey-l); color:var(--honey-d); font-size:12px; padding:2px 9px; border-radius:99px;}
 
   input[type=text],input[type=password],input[type=url],input[type=datetime-local],
   select,textarea{width:100%; border:1px solid var(--line); border-radius:10px; padding:11px 14px;
-                  font-size:14px; font-family:inherit; background:#fffdf8; color:var(--ink);}
+                  font-size:14px; font-family:inherit; background:#ffffff; color:var(--ink);}
   input:focus,select:focus,textarea:focus{outline:2px solid var(--honey); border-color:transparent;}
   textarea{resize:vertical;}
   label{font-size:13px; color:var(--sub); font-weight:600;}
@@ -63,7 +63,7 @@
        background:#fff; border:1px solid var(--line); color:var(--ink); transition:.15s; white-space:nowrap;}
   .btn:hover{border-color:var(--honey);}
   .btn-primary{background:linear-gradient(135deg,var(--honey),var(--honey-d)); color:#fff; border:none;
-               box-shadow:0 4px 12px rgba(245,158,11,.3);}
+               box-shadow:0 4px 14px rgba(79,70,229,.25);}
   .btn-primary:hover{filter:brightness(1.05);}
   .btn-ghost{background:transparent; border:none; color:var(--honey-d); font-weight:700; cursor:pointer; font-size:13px;}
   .btn-sm{padding:7px 12px; font-size:12.5px; border-radius:9px;}
@@ -91,8 +91,8 @@
   .b-cat{background:var(--honey-l); color:var(--honey-d);}
   .b-news-low{background:#ecfdf5; color:var(--ok);} .b-news-hi{background:#fef2f2; color:var(--bad);}
   .b-news-none{background:#f3f4f6; color:#9ca3af;}
-  .kw-bar{height:7px; border-radius:99px; background:#f1ead9; margin-top:9px; overflow:hidden;}
-  .kw-bar > div{height:100%; border-radius:99px; background:linear-gradient(90deg,var(--honey),#fbbf24);}
+  .kw-bar{height:7px; border-radius:99px; background:#eef2ff; margin-top:9px; overflow:hidden;}
+  .kw-bar > div{height:100%; border-radius:99px; background:linear-gradient(90deg,#6366f1,#a5b4fc);}
   .kw-foot{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:9px; flex-wrap:wrap;}
   .kw-reason{font-size:12px; color:var(--sub);}
   .kw-load{color:var(--sub); font-size:13px; padding:6px 2px;}
@@ -100,7 +100,7 @@
   /* 프롬프트 출력 */
   .prompt-stat{font-size:13px; color:var(--sub); font-weight:600;}
   #ptOutput{width:100%; min-height:380px; margin-top:10px; font-family:ui-monospace,"Cascadia Code",Consolas,monospace;
-            font-size:12.5px; line-height:1.7; background:#fffdf5;}
+            font-size:12.5px; line-height:1.7; background:#ffffff;}
   .newsbox{background:#f0f9ff; border:1px solid #bae6fd; border-radius:10px; padding:10px 14px; margin-top:12px; font-size:12.5px; color:#0c4a6e;}
   .newsbox b{display:block; margin-bottom:4px;}
   .newsbox li{margin-left:16px;}
@@ -122,7 +122,7 @@
   .preview table{border-collapse:collapse; width:100%; margin:14px 0; font-size:13.5px;}
   .preview th,.preview td{border:1px solid var(--line); padding:8px 10px; text-align:left;}
   .preview th{background:var(--honey-l);}
-  .preview blockquote{border-left:4px solid var(--honey); background:#fffaf0; padding:8px 14px; margin:10px 0; border-radius:0 8px 8px 0;}
+  .preview blockquote{border-left:4px solid var(--honey); background:#f8fafc; padding:8px 14px; margin:10px 0; border-radius:0 8px 8px 0;}
   .preview code{background:#f3f0e8; padding:1px 6px; border-radius:5px; font-size:13px;}
   .preview hr{border:none; border-top:1px dashed var(--line); margin:16px 0;}
   .ad-ph{margin:16px 0; border:2px dashed var(--honey); background:var(--honey-l); color:var(--honey-d);
@@ -169,109 +169,42 @@
   </header>
 
   <div class="pipeline">
-    <span class="pipe-step done" data-step="0">구글 수요 신호</span><span class="pipe-arrow">→</span>
-    <span class="pipe-step done" data-step="1">고단가 필터</span><span class="pipe-arrow">→</span>
-    <span class="pipe-step done" data-step="2">토픽 경쟁도</span><span class="pipe-arrow">→</span>
-    <span class="pipe-step done" data-step="3">검색 의도</span><span class="pipe-arrow">→</span>
-    <span class="pipe-step done" data-step="4">꿀통 지수</span><span class="pipe-arrow">→</span>
-    <span class="pipe-step" data-step="5">프롬프트</span><span class="pipe-arrow">→</span>
-    <span class="pipe-step" data-step="6">무료 AI</span><span class="pipe-arrow">→</span>
-    <span class="pipe-step" data-step="7">구글 SEO 발행</span>
+    <span class="pipe-step done" data-step="0">원문 수집</span><span class="pipe-arrow">→</span>
+    <span class="pipe-step" data-step="1">프롬프트</span><span class="pipe-arrow">→</span>
+    <span class="pipe-step" data-step="2">무료 AI</span><span class="pipe-arrow">→</span>
+    <span class="pipe-step" data-step="3">변환·발행</span>
   </div>
 
   <nav class="tabs">
-    <button class="tab-btn active" data-tab="tab1">🔍 ① 키워드 분석</button>
-    <button class="tab-btn" data-tab="tab2">🧠 ② 프롬프트 생성</button>
-    <button class="tab-btn" data-tab="tab3">📋 ③ 역공급 변환</button>
-    <button class="tab-btn" data-tab="tab5">🌐 ④ 구글 세팅</button>
+    <button class="tab-btn active" data-tab="tab2">✍️ ① 프롬프트 생성</button>
+    <button class="tab-btn" data-tab="tab3">🚀 ② 변환·발행</button>
     <button class="tab-btn" data-tab="tab4">⚙️ 설정</button>
   </nav>
 
   <main>
-    <!-- ========== ① 키워드 분석 ========== -->
-    <section id="tab1" class="tab active">
+    <!-- ========== ① 프롬프트 생성 ========== -->
+    <section id="tab2" class="tab active">
       <div class="card">
-        <h2><span class="step-num">STEP 1</span> 시드 키워드 입력</h2>
-        <div class="row grow">
-          <input type="text" id="kwInput" placeholder="예: 청년 대출, 실손보험, 정부 지원금, 알약…" autocomplete="off">
-          <button class="btn btn-primary" id="kwAnalyzeBtn">🔍 분석 시작</button>
+        <h2><span class="step-num">STEP 1</span> 블로그 글쓰기 프롬프트 생성</h2>
+        <p class="muted">공식 사이트·신문기사에서 가져온 <b>원문을 그대로 붙여넣으면</b>, <b>애드센스 인증·구글 SEO에 최적화된 구조</b>로 글을 쓰라고 지시하는 프롬프트가 생성됩니다. <b>생성 즉시 자동 복사</b>되니 AI(Gemini 등)에 붙여넣기만 하세요.</p>
+        <div class="field" style="margin-top:12px;">
+          <label>글 제목/주제 <span class="muted">(선택 — 비우면 원문에서 자동 추출)</span></label>
+          <input type="text" id="ptTopic" placeholder="예: 2026년 에너지바우처 신청 방법 총정리" autocomplete="off">
         </div>
-        <div class="opts">
-          <label class="check"><input type="checkbox" id="kwNewsToggle" checked> 토픽 경쟁 분석 (구글 뉴스)</label>
-          <span class="muted">수요 신호 = <b>구글 자동완성</b>(검색어 패턴 · 시사 뉴스가 아님) · 토픽 경쟁 = <b>구글 뉴스</b> 보도량</span>
+        <div class="field">
+          <label>📄 원문 붙여넣기 (공식 공지·신문기사 — 사실의 100% 출처)</label>
+          <textarea id="ptFactData" rows="9" placeholder="복지로/정부24/고용24 등 공식 사이트나 신문기사에서 복사한 원문 전문을 그대로 붙여넣으세요.&#10;게시일(등록일)이 있으면 함께 붙여넣으면 자동 감지됩니다."></textarea>
         </div>
-        <div id="kwLoading" class="kw-load" hidden></div>
-        <div id="kwSummary" class="info-chips"></div>
-      </div>
-
-      <div class="card" id="kwResultCard" hidden>
-        <h2><span class="step-num">STEP 2</span> 꿀통 지수 분석 결과 <span class="muted" style="font-size:12px; font-weight:500;">(점수순 · 상위 3개 🍯)</span></h2>
-        <div id="kwList"></div>
-        <details>
-          <summary>🍯 꿀통 지수 산정 기준 보기</summary>
-          <table class="score-table" style="margin-top:8px;">
-            <tr><td>기본 점수</td><td>+20</td></tr>
-            <tr><td>거래형 의도 (신청·가입·다운로드)</td><td>+30</td></tr>
-            <tr><td>문제해결형 의도 (오류·해결)</td><td>+25</td></tr>
-            <tr><td>탐색·비교형 의도 (비교·추천·후기)</td><td>+15</td></tr>
-            <tr><td>정보형 의도 (뜻·정의)</td><td>+0 (비추)</td></tr>
-            <tr><td>고단가 카테고리 (보험·대출·법률·병원)</td><td>+25</td></tr>
-            <tr><td>고단가 카테고리 (카드·지원금·세금·IT·호스팅)</td><td>+20</td></tr>
-            <tr><td>고단가 카테고리 (건강기능식품)</td><td>+15</td></tr>
-            <tr><td>고단가 트리거 단어 (신청·비교·비용·조건…)</td><td>단어당 +3 (최대 +15)</td></tr>
-            <tr><td>구글 뉴스 10건 이상 (경쟁 신호)</td><td>-5</td></tr>
-          </table>
-        </details>
-      </div>
-
-      <div class="card" id="kwManualCard">
-        <h2><span class="step-num">TIP</span> 프록시 없이도 되는 것</h2>
-        <p class="muted">키워드 분석(구글 자동완성·뉴스 신호)은 프록시가 필요하지만, <b>돈 냄새 확장 규칙</b>은 브라우저만으로 동작합니다.<br>
-        확장은 <b>카테고리에 맞는 접미사만</b> 자동 생성됩니다 — IT 키워드(알약 → 알약 다운로드·광고 제거·해지 방법), 금융 키워드(청년 대출 → 신청 방법·조건·금리), 정부지원(신청 방법·자격·지원 금액)…<br>
-        <b>카테고리가 없는 키워드(예: 대한민국 방산 위상)는 인공 확장 없이 실제 구글 검색어만 사용</b>하므로 어색한 조합이 생기지 않습니다.</p>
-      </div>
-    </section>
-
-    <!-- ========== ② 프롬프트 생성 ========== -->
-    <section id="tab2" class="tab">
-      <div class="card">
-        <h2><span class="step-num">STEP 3</span> 마스터 프롬프트 생성기 <span class="muted" style="font-size:12px; font-weight:500;">(Google SEO 모드)</span></h2>
-        <p class="muted"><b>키워드 모드</b>(짧은 검색어) / <b>✍️ 주제 모드</b>(주제 직접 입력) / ⚡ <b>주제 모드 + 원문 붙여넣기</b>(라이트 프롬프트) 중 선택.<br>
-        <b>추천 워크플로</b>: 사람이 실시간 검색(복지로·정부24·신문 등)으로 <b>원문 그대로 확보</b> → ⚡ 여기에 붙여넣기 → <b>원문 100% 유지 변환 프롬프트(~1,000자)</b> 생성 → AI가 블로그 형태로 재구성 → ③ 탭에서 SEO 최적화 → 발행.<br>
-        원문이 없으면 기존 전체 프롬프트(2,000자+)가 생성됩니다.</p>
-        <div class="row" style="margin-top:12px;">
-          <label class="check"><input type="radio" name="ptMode" id="ptModeKw" checked> 키워드 모드</label>
-          <label class="check"><input type="radio" name="ptMode" id="ptModeTopic"> ✍️ 주제 직접 입력 모드</label>
+        <div class="field">
+          <label>세부 요구사항 <span class="muted">(선택)</span></label>
+          <textarea id="ptTopicDesc" rows="2" placeholder="예: 타겟 독자는 20~30대 청년, 지원 조건을 표로 정리해줘"></textarea>
         </div>
-        <div class="row grow" id="ptKwRow" style="margin-top:12px;">
-          <input type="text" id="ptKeyword" placeholder="분석 탭에서 선택하거나 직접 입력 (예: 청년 대출 신청 방법)" autocomplete="off">
-        </div>
-        <div id="ptTopicPanel" hidden style="margin-top:12px;">
-          <input type="text" id="ptTopic" placeholder="주제/제목 (예: 2026년 8월 기준 청년 지원금 총정리)" autocomplete="off">
-          <textarea id="ptTopicDesc" rows="2" style="margin-top:8px;" placeholder="(선택) 세부 요구사항 — 타겟 독자, 다뤄야 할 포인트 등"></textarea>
-          <div class="field" style="margin-top:10px;">
-            <label>📄 원문 붙여넣기 (공식 공지·신문기사 그대로 — 게시일 자동 감지)</label>
-            <textarea id="ptFactData" rows="7" placeholder="복지로/정부24/고용24 등 공식 사이트나 기사에서 복사한 원문 전문을 그대로 붙여넣으세요.&#10;&#10;예)&#10;2026년 에너지바우처 신청 안내&#10;등록일 2026-06-11&#10;온라인 신청기간: 2026. 6. 15. ~ 12. 31.&#10;지원대상: ... (이하 원문 그대로)"></textarea>
-            <p class="hint">💡 원문 전문을 그대로 넣으면 <b>원문의 사실을 100% 유지해 블로그 형태로만 재구성</b>하는 라이트 프롬프트(~1,000자)가 생성됩니다. 게시일이 자동 감지되어 '사실의 기준일'로 박힙니다. 비우면 기존 전체 프롬프트(2,000자+)로 생성됩니다.</p>
-          </div>
-        </div>
-        <div class="row grow" style="margin-top:12px;">
-          <button class="btn btn-primary" id="ptGenBtn">🧠 프롬프트 생성</button>
-        </div>
-        <div id="ptInfo" class="info-chips"></div>
         <div class="opts">
           <label>분량
             <select id="ptLen">
-              <option value="1500">~1,500자 (스낵)</option>
-              <option value="2500" selected>~2,500자 (표준)</option>
-              <option value="4000">~4,000자 (디테일)</option>
-            </select>
-          </label>
-          <label>톤
-            <select id="ptTone">
-              <option value="expert">전문가형</option>
-              <option value="practical" selected>실용형</option>
-              <option value="friendly">친근형</option>
+              <option value="1500">~1,500자</option>
+              <option value="2500" selected>~2,500자</option>
+              <option value="4000">~4,000자</option>
             </select>
           </label>
           <label>FAQ 수
@@ -279,44 +212,22 @@
               <option>3</option><option selected>5</option><option>7</option>
             </select>
           </label>
-          <label class="check"><input type="checkbox" id="ptNews" checked> 최신 뉴스 포함</label>
-          <label class="check"><input type="checkbox" id="ptLinks" checked> 내부 링크 포함</label>
+          <button class="btn btn-primary" id="ptGenBtn">🧠 프롬프트 생성</button>
         </div>
-        <div id="ptNewsBox" class="newsbox" hidden></div>
+        <div id="ptInfo" class="info-chips"></div>
         <div id="ptResult" hidden style="margin-top:14px;">
           <div class="row">
             <span class="prompt-stat" id="ptStat"></span>
             <button class="btn btn-sm btn-primary" id="ptCopyBtn">📋 복사</button>
             <a class="btn btn-sm" href="https://gemini.google.com" target="_blank" rel="noopener">→ Gemini 열기</a>
             <a class="btn btn-sm" href="https://claude.ai" target="_blank" rel="noopener">→ Claude 열기</a>
-            <button class="btn btn-sm" id="ptBackBtn">← 분석 탭으로</button>
           </div>
           <textarea id="ptOutput" readonly></textarea>
-          <p class="hint">💡 생성된 프롬프트를 통째로 복사 → 무료 AI(Gemini 등)에 붙여넣기 → 나온 글을 ③ 탭에 붙여넣으면 끝입니다.</p>
+          <p class="hint">💡 프롬프트가 자동 복사되었습니다. AI에 붙여넣기 → 글 받기 → <b>② 변환·발행</b> 탭으로 이동하세요.</p>
         </div>
       </div>
     </section>
-
-      <div class="card" id="fcCard">
-        <h2><span class="step-num">STEP 3-2</span> 🔍 팩트체크 프롬프트 (AI 환각 방지 — 2차 검증)</h2>
-        <p class="muted">AI가 작성한 초안을 붙여넣으면 <b>"수치·계산 검증 후 수정본 출력"</b> 지시 프롬프트를 생성합니다.<br>
-        흐름: ① 프롬프트 생성 → AI 초안 작성 → ② <b>여기에 초안 붙여넣기 → 팩트체크 프롬프트 생성</b> → AI가 검증·수정한 최종본 받기 → ③ 변환·발행</p>
-        <textarea id="fcDraft" rows="6" placeholder="AI가 쓴 초안 전체를 여기에 붙여넣으세요"></textarea>
-        <div class="row" style="margin-top:10px;">
-          <button class="btn btn-primary" id="fcGenBtn">🔍 팩트체크 프롬프트 생성</button>
-        </div>
-        <div id="fcResult" hidden style="margin-top:14px;">
-          <div class="row">
-            <span class="prompt-stat" id="fcStat"></span>
-            <button class="btn btn-sm btn-primary" id="fcCopyBtn">📋 복사</button>
-            <a class="btn btn-sm" href="https://gemini.google.com" target="_blank" rel="noopener">→ Gemini 열기</a>
-          </div>
-          <textarea id="fcOutput" readonly style="margin-top:8px; min-height:280px;"></textarea>
-          <p class="hint">💡 이 프롬프트에는 방금 수집한 뉴스(링크 포함)가 [팩트 데이터]로 함께 들어갑니다. AI는 링크를 열어 수치를 확인하거나, 못 열면 '※ 확인 필요'로 표시합니다.</p>
-        </div>
-      </div>
-
-    <!-- ========== ③ 역공급 변환 ========== -->
+<!-- ========== ③ 역공급 변환 ========== -->
     <section id="tab3" class="tab">
       <div class="card">
         <h2><span class="step-num">STEP 4</span> AI 생성 글 붙여넣기 (역공급 변환기)</h2>
@@ -398,72 +309,7 @@
       </div>
     </section>
 
-    <!-- ========== ④ 구글 세팅 ========== -->
-    <section id="tab5" class="tab">
-      <div class="card">
-        <h2><span class="step-num">📰</span> 애드센스 세팅 (고단가 수익 활성화)</h2>
-        <div class="field">
-          <label>애드센스 발행자 ID</label>
-          <input type="text" id="setAdsClient" placeholder="ca-pub-1234567890123456">
-          <p class="hint">애드센스 가입 후 계정 → 계정 정보에서 확인. 없으면 ca-pub-XXXXXXXXXXXXXXXX 자리표시자로 생성됩니다.</p>
-        </div>
-        <div class="field">
-          <label>사이트 &lt;head&gt;에 넣을 코드 (자동 광고)</label>
-          <textarea id="adsHeadOut" class="codebox codebox-sm" readonly></textarea>
-          <div class="row" style="margin-top:6px;">
-            <button class="btn btn-sm btn-primary" id="adsHeadCopy">📋 헤더 코드 복사</button>
-          </div>
-        </div>
-        <div class="guide">
-          <b>전면(Vignette)·인피드 광고 활성화 방법</b>
-          <ul>
-            <li>애드센스 콘솔 → <b>광고</b> → <b>사이트 전체 광고(자동 광고)</b> → 이 사이트의 자동 광고 켜기</li>
-            <li>전면 광고: 모바일에서 페이지 전환 시 풀스크린 광고 — <b>본문이 길고 스크롤이 많을수록 노출↑</b></li>
-            <li>인피드 광고: 목록/피드형 콘텐츠 사이 — 카테고리·홈 페이지가 목록형이면 활성화</li>
-            <li>⚠️ 자동 광고는 본문 밀도·레이아웃에 따라 구글이 알아서 배치합니다. 본문에 인위적 광고 블록을 많이 넣으면 오히려 RPM이 떨어질 수 있습니다.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2><span class="step-num">🦴</span> 색인 패키지 (Search Console)</h2>
-        <div class="guide">
-          <b>구글 서치콘솔(GSC) 색인 등록 절차</b>
-          <ol style="margin:6px 0 0 18px;">
-            <li>search.google.com/search-console → <b>URL 접두어</b>로 사이트 등록 (예: https://myblog.com)</li>
-            <li>DNS TXT 레코드 또는 HTML 파일로 소유권 확인</li>
-            <li>좌측 <b>사이트맵</b> → 아래에서 생성한 sitemap.xml 제출</li>
-            <li>글 발행 후 <b>URL 검사</b> → 색인 생성 요청 (신규 사이트는 초기 수 주 소요)</li>
-            <li>주의: AI 대량 생성 글을 한꺼번에 쏟아내면 스팸으로 오인될 수 있습니다. <b>하루 1~2개, 검수 후 발행</b>이 안전합니다.</li>
-          </ol>
-        </div>
-        <div class="field" style="margin-top:14px;">
-          <label>🦴 sitemap.xml 미리보기</label>
-          <textarea id="tab5Sitemap" class="codebox codebox-sm" readonly></textarea>
-          <button class="btn btn-sm" id="tab5SitemapCopy">📋 복사</button>
-          <button class="btn btn-sm" id="tab5SitemapGen">🔄 다시 생성</button>
-        </div>
-        <div class="field">
-          <label>🤖 robots.txt 미리보기</label>
-          <textarea id="tab5Robots" class="codebox codebox-sm" readonly></textarea>
-          <button class="btn btn-sm" id="tab5RobotsCopy">📋 복사</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2><span class="step-num">💰</span> 무료 키워드 데이터 현실</h2>
-        <div class="guide">
-          <ul>
-            <li><b>구글 자동완성</b> = 실시간 구글 검색어 수요 신호 (이 시스템이 사용, 무료·무제한)</li>
-            <li><b>구글 키워드 플래너</b> = 구글애즈 계정 + 광고 캠페인 필요 (무료 계정으로 월 단위 검색량 일부 열람 가능, API는 유료)</li>
-            <li><b>구글 트렌드</b> = 시계열 인기 비교용 (관련 검색어 자동 API는 토픽 ID 기반이라 키워드 확장에는 부적합)</li>
-            <li>👉 현실적 무료 전략: <b>자동완성(수요) + 뉴스 보도량(경쟁) + 애드센스 실측 RPM</b>으로 판단 → 1~2개월 운영 후 실적 데이터로 가중치 보정</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== ⑤ 설정 ========== -->
+        <!-- ========== ⑤ 설정 ========== -->
     <section id="tab4" class="tab">
       <div class="card">
         <h2><span class="step-num">⚙</span> 로컬 프록시</h2>
@@ -510,6 +356,58 @@
           <span id="setTestMsg"></span>
         </div>
       </div>
+      <div class="card">
+        <h2><span class="step-num">📰</span> 애드센스 세팅 (고단가 수익 활성화)</h2>
+        <div class="field">
+          <label>애드센스 발행자 ID</label>
+          <input type="text" id="setAdsClient" placeholder="ca-pub-1234567890123456">
+          <p class="hint">애드센스 가입 후 계정 → 계정 정보에서 확인. 없으면 ca-pub-XXXXXXXXXXXXXXXX 자리표시자로 생성됩니다.</p>
+        </div>
+        <div class="field">
+          <label>사이트 &lt;head&gt;에 넣을 코드 (자동 광고)</label>
+          <textarea id="adsHeadOut" class="codebox codebox-sm" readonly></textarea>
+          <div class="row" style="margin-top:6px;">
+            <button class="btn btn-sm btn-primary" id="adsHeadCopy">📋 헤더 코드 복사</button>
+          </div>
+        </div>
+        <div class="guide">
+          <b>전면(Vignette)·인피드 광고 활성화 방법</b>
+          <ul>
+            <li>애드센스 콘솔 → <b>광고</b> → <b>사이트 전체 광고(자동 광고)</b> → 이 사이트의 자동 광고 켜기</li>
+            <li>전면 광고: 모바일에서 페이지 전환 시 풀스크린 광고 — <b>본문이 길고 스크롤이 많을수록 노출↑</b></li>
+            <li>인피드 광고: 목록/피드형 콘텐츠 사이 — 카테고리·홈 페이지가 목록형이면 활성화</li>
+            <li>⚠️ 자동 광고는 본문 밀도·레이아웃에 따라 구글이 알아서 배치합니다. 본문에 인위적 광고 블록을 많이 넣으면 오히려 RPM이 떨어질 수 있습니다.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <h2><span class="step-num">🦴</span> 색인 패키지 (Search Console)</h2>
+        <div class="guide">
+          <b>구글 서치콘솔(GSC) 색인 등록 절차</b>
+          <ol style="margin:6px 0 0 18px;">
+            <li>search.google.com/search-console → <b>URL 접두어</b>로 사이트 등록 (예: https://myblog.com)</li>
+            <li>DNS TXT 레코드 또는 HTML 파일로 소유권 확인</li>
+            <li>좌측 <b>사이트맵</b> → 아래에서 생성한 sitemap.xml 제출</li>
+            <li>글 발행 후 <b>URL 검사</b> → 색인 생성 요청 (신규 사이트는 초기 수 주 소요)</li>
+            <li>주의: AI 대량 생성 글을 한꺼번에 쏟아내면 스팸으로 오인될 수 있습니다. <b>하루 1~2개, 검수 후 발행</b>이 안전합니다.</li>
+          </ol>
+        </div>
+        <div class="field" style="margin-top:14px;">
+          <label>🦴 sitemap.xml 미리보기</label>
+          <textarea id="tab5Sitemap" class="codebox codebox-sm" readonly></textarea>
+          <button class="btn btn-sm" id="tab5SitemapCopy">📋 복사</button>
+          <button class="btn btn-sm" id="tab5SitemapGen">🔄 다시 생성</button>
+        </div>
+        <div class="field">
+          <label>🤖 robots.txt 미리보기</label>
+          <textarea id="tab5Robots" class="codebox codebox-sm" readonly></textarea>
+          <button class="btn btn-sm" id="tab5RobotsCopy">📋 복사</button>
+        </div>
+      </div>
+
+
     </section>
   </main>
 
@@ -553,20 +451,6 @@ const CATEGORIES = [
    lsi:["성분","함량","복용법","부작용","주의사항","추천","가격 비교","인증"]},
 ];
 
-const INTENTS = [
-  {id:"transactional", name:"거래형",   emoji:"🔥", score:30,
-   desc:"독자가 지금 바로 신청·가입·다운로드하려는 상태. 방법·조건·절차를 정확히 알려주고 행동(CTA)을 유도해야 함. 구글에서도 전환율·광고 단가가 가장 높음.",
-   kw:["신청","가입","다운로드","구매","주문","결제","등록","예약","설치","발급","구독","취소","해지","문의"]},
-  {id:"problem",       name:"문제해결형", emoji:"🛠️", score:25,
-   desc:"독자가 오류·문제로 막혀 있는 상태. 원인 → 해결 단계를 빠르고 정확하게 안내해야 함. 구글 스니펫 점유율이 높은 유형.",
-   kw:["오류","해결","안됨","안 돼","고장","삭제","제거","복구","차단","경고","실패","에러","해결법","먹통"]},
-  {id:"commercial",    name:"탐색·비교형", emoji:"🔎", score:15,
-   desc:"독자가 선택을 앞두고 비교 중인 상태. 비교 기준·차이·장단점·가격을 공정하게 정리해야 함.",
-   kw:["비교","추천","순위","후기","가격","비용","vs","차이","장단점","베스트","TOP"]},
-  {id:"informational", name:"정보형",   emoji:"📘", score:0,
-   desc:"독자가 개념을 이해하려는 상태. 쉬운 설명 중심. 광고 단가 낮음 — 스니펫 점유용이 아니면 비추.",
-   kw:["뜻","정의","란","이란","개념","역사","종류","뭐","무엇"]},
-];
 
 const PERSONAS = {
   loan: "은행·대출 상담 10년 차 금융 실무 전문가",
@@ -589,35 +473,7 @@ const INTENT_ROLE = {
   informational: "복잡한 개념을 쉽게 풀어 설명하는 전달자",
 };
 
-const TRIGGERS = ["신청","비교","추천","후기","조건","비용","가격","방법","혜택","다운로드",
-                  "해결","자격","기간","한도","수수료","금리","보험료","할인","무료","이벤트","환급","지원"];
-
-/* 카테고리별 "돈 냄새 확장" 접미사 — 카테고리에 맞는 것만 사용 (말도 안 되는 조합 방지)
-   예) IT: 알약 → 알약 다운로드 / 금융: 청년 대출 → 청년 대출 신청 방법
-       카테고리 없음(예: 대한민국 방산 위상) → 인공 확장 생략, 실제 검색어(자동완성)만 사용 */
-const CAT_SUFFIXES = {
-  loan:      ["신청 방법","조건","비교","금리","한도","자격","후기"],
-  insurance: ["비교","보험료","청구 방법","가입 조건","갱신","후기"],
-  medical:   ["비용","수술 비용","실비 청구","병원 추천","후기"],
-  law:       ["상담","비용","사례","기간","합의금"],
-  gov:       ["신청 방법","자격","지원 금액","신청 기간","문의처"],
-  tax:       ["신고 기한","절세 방법","신고 방법","공제","세율"],
-  card:      ["혜택 비교","연회비","추천","발급 조건"],
-  it:        ["다운로드","무료 설치","해지 방법","오류 해결","삭제","비교"],
-  hosting:   ["비교","요금","이전","추천","가격"],
-  health:    ["비교","추천","효능","부작용","복용법","가격"],
-};
-
 const GENERIC_LSI = ["공식 사이트","신청 방법","가격 비교","이용 조건","주의사항","후기","단점","대체"];
-
-function detectIntent(kw){
-  const k = kw.toLowerCase();
-  const match = (arr) => arr.some(w => k.includes(w.toLowerCase()));
-  for (const it of INTENTS){
-    if (match(it.kw)) return it;
-  }
-  return INTENTS[3];
-}
 
 function detectCategory(kw){
   const k = kw.toLowerCase();
@@ -626,73 +482,13 @@ function detectCategory(kw){
     for (const w of c.kw){
       // 범용 단어(비용·추천·후기·혜택 등)는 카테고리 판별에 쓰지 않는다
       // → "방산 위상 비용"이 의료로 오분류되는 문제 방지
-      if (TRIGGERS.includes(w)) continue;
+      if (["비용","가격","추천","후기","혜택","비교","조건","방법","신청","무료"].includes(w)) continue;
       if (k.includes(w.toLowerCase()) && w.length > bestLen){
         best = c; bestLen = w.length;
       }
     }
   }
   return best;
-}
-
-function countTriggers(kw){
-  const k = kw.toLowerCase();
-  let n = 0;
-  for (const t of TRIGGERS){
-    if (k.includes(t)) n++;
-  }
-  return Math.min(n, 5);
-}
-
-function scoreKeyword(kw, newsCount){
-  const intent = detectIntent(kw);
-  const cat = detectCategory(kw);
-  const trig = countTriggers(kw);
-  const reasons = [];
-  reasons.push(intent.emoji + " " + intent.name + " 의도 +" + intent.score);
-  if (cat) reasons.push("[" + cat.name + "] 카테고리 +" + cat.weight);
-  else reasons.push("고단가 카테고리 아님 +0");
-  if (trig > 0) reasons.push("트리거 단어 " + trig + "개 +" + (trig*3));
-  let newsAdj = 0;
-  if (newsCount === null || newsCount === undefined){
-    // 분석 안 됨
-  } else if (newsCount === 0){
-    reasons.push("구글 뉴스 없음 (정보 부족) +0");
-  } else if (newsCount <= 5){
-    newsAdj = 5; reasons.push("구글 뉴스 " + newsCount + "건 (활성 확인) +5");
-  } else if (newsCount <= 10){
-    newsAdj = 2; reasons.push("구글 뉴스 " + newsCount + "건 +2");
-  } else {
-    newsAdj = -5; reasons.push("구글 뉴스 " + newsCount + "건 이상 (경쟁 신호) -5");
-  }
-  let score = 20 + intent.score + (cat ? cat.weight : 0) + trig*3 + newsAdj;
-  score = Math.max(0, Math.min(100, score));
-  const grade = score >= 75 ? "🍯 최고" : score >= 55 ? "🍯 양호" : score >= 40 ? "보통" : "❌ 비추";
-  return {score, grade, intent, cat, trig, newsAdj, reasons};
-}
-
-function expandCandidates(seed, suggestions, cat){
-  const set = new Set();
-  const add = (k) => { k = k.trim(); if (k && k.length <= 60) set.add(k); };
-  add(seed);
-  for (const s of suggestions) add(s);
-  // 카테고리에 맞는 접미사만 확장. 카테고리 없으면 인공 확장 생략 (실제 검색어만 사용)
-  if (cat && CAT_SUFFIXES[cat.id]){
-    for (const suf of CAT_SUFFIXES[cat.id]) add(seed + " " + suf);
-  }
-  return [...set].slice(0, 18);
-}
-
-function parseLinks(raw){
-  const out = [];
-  for (const line of String(raw || "").split(/\r?\n/)){
-    const t = line.trim();
-    if (!t) continue;
-    let m = t.match(/^(.*?)\s*[|,]\s*(https?:\/\/\S+)$/);
-    if (!m) m = t.match(/^(.*?)\s+(https?:\/\/\S+)$/);
-    if (m) out.push({title: m[1].trim(), url: m[2].trim()});
-  }
-  return out;
 }
 
 function inlineMd(s){
@@ -942,152 +738,7 @@ function localToday(){
   return d.getFullYear() + "." + p(d.getMonth() + 1) + "." + p(d.getDate());
 }
 
-function buildPrompt(cfg){
-  const kw = cfg.keyword;
-  const intent = cfg.intent || detectIntent(kw);
-  const cat = cfg.category || detectCategory(kw);
-  const lsi = (cat ? cat.lsi : []).concat(GENERIC_LSI).slice(0, 12);
-  const len = cfg.len || 2500;
-  const toneMap = {
-    expert: "전문가적이고 신뢰감 있는 톤. 근거·수치를 제시하고, 단정적 표현 대신 정확한 표현을 쓴다.",
-    practical: "실용적이고 간결한 톤. 바로 실행할 수 있는 단계·체크리스트 중심.",
-    friendly: "친근하고 쉬운 톤. 예시와 비유를 활용하되 존댓말을 유지한다.",
-  };
-  const newsLines = (cfg.news && cfg.news.length)
-    ? cfg.news.map(n => "- " + n.title + (n.press ? " (" + n.press + (n.date ? ", " + n.date : "") + ")" : "") +
-        (n.link ? "\n  링크: " + n.link : "")).join("\n")
-    : null;
-  const linkLines = (cfg.links && cfg.links.length)
-    ? cfg.links.slice(0, 5).map(l => "- " + l.title + " : " + l.url).join("\n")
-    : null;
-
-  // 카테고리별 페르소나 + 의도별 역할 — 키워드에 맞게 자동 변주
-  const persona = (cat && PERSONAS[cat.id]) || ("'" + kw + "' 분야 실무 경험 10년 차 전문가");
-  const role = INTENT_ROLE[intent.id] || "사실을 정확히 전달하는 실무자";
-
-  let p = "";
-  p += "# 🎯 역할 지시\n";
-  p += "너는 " + persona + "이자, " + role + "다. 동시에 구글 SEO 라이터로서 ";
-  p += "목표는 오직 하나: **구글 검색(Google Search) 상단 노출과 애드센스(AdSense) 수익 최적화**다. ";
-  p += "네이버 블로그식 잡담형 글쓰기가 아니라, 구글 랭킹 시스템(스팸브레인·유용한 콘텐츠 시스템)이 높이 평가하는 "
-     + "\"정보성·구조적 SEO 가이드 글\"을 작성하라. 아래 지시사항을 100% 따라 완성도 높은 글 1편을 작성하라.\n\n";
-
-  // 주제 직접 입력 모드 — 사용자가 지정한 주제를 최우선 지시로 삽입
-  if (cfg.topic){
-    p += "## 0. 글 주제 (사용자 직접 입력 — 반드시 이 주제로만 작성)\n";
-    p += "- 주제/제목: " + cfg.topic + "\n";
-    if (cfg.topicDesc){
-      p += "- 세부 요구사항: " + cfg.topicDesc + "\n";
-    }
-    p += "- 위 주제에서 벗어나지 말 것. 주제와 무관한 내용을 추가하지 말 것.\n";
-    p += "- 이 주제를 검색하는 독자가 궁금해할 질문을 먼저 상상하고, 그 질문에 답하는 구성으로 작성할 것.\n\n";
-  }
-
-  p += "## 1. 기준일과 시간차 경고 (매우 중요)\n";
-  p += "- 오늘 날짜: " + localToday() + "\n";
-  p += "- 당신의 학습 데이터는 이 날짜보다 과거일 수 있다. 정책·금액·요건·수치는 아래 [팩트 데이터] 또는 웹 검색으로 반드시 확인한다.\n";
-  p += "- 확인되지 않은 수치는 절대 추측으로 채우지 말고 '※ 확인 필요'라고 표시하거나 '대략/보통'으로 완화한다.\n\n";
-
-  p += "## 2. 글의 기본 정보\n";
-  p += "- 핵심 키워드: " + kw + "\n";
-  p += "- 검색 의도: " + intent.emoji + " " + intent.name + " — " + intent.desc + "\n";
-  p += "- 분량: 약 " + len + "자 (제목·표·FAQ 포함)\n";
-  p += "- 톤: " + (toneMap[cfg.tone] || toneMap.practical) + "\n";
-  p += "- 대상 독자: 검색으로 이 키워드를 찾은, 아직 해결책을 모르는 일반인\n\n";
-
-  p += "## 3. 글 구조 (구글 크롤러가 이해하기 쉬운 시맨틱 HTML 구조)\n";
-  p += "1. 문제 제기: 독자가 지금 겪는 구체적인 고민·상황을 2~3문장으로 공감하며 시작한다.\n";
-  p += "2. 핵심 요약(스니펫 답변): \"결론부터 말하면 …\" 형태로 40~60자 안에 직접 답을 먼저 준다. 구글의 추천 스니펫은 첫 문단의 직접 답변을 가져간다.\n";
-  p += "3. 본문 1: 구체적인 방법·조건·절차를 <h2>/<h3>로 나눠 상세히 설명한다. 실제 숫자·요건·기간·비용을 구체적으로.\n";
-  p += "4. 본문 2: 비교 또는 유형별 설명을 표(테이블) 1개 이상으로 정리한다. 표는 리치 결과·체류시간에 유리하다.\n";
-  p += "5. 주의사항: 흔한 실수, 사기·피해 주의, 제외 조건을 정직하게 경고한다.\n";
-  p += "6. FAQ: 질문 " + cfg.faqN + "개를 \"Q: 질문\" \"A: 한 줄 답변\" 형식으로 작성한다. (구글 FAQ 리치 결과 대상)\n";
-  p += "7. 마무리: 핵심을 3줄로 요약하고 \"지금 바로 [행동]하세요\" 형태의 CTA 1문장으로 끝맺는다.\n\n";
-
-  p += "## 4. 구글 SEO 필수 규칙 (반드시 준수)\n";
-  p += "- 제목은 <h1> 1개, 소제목은 <h2>/<h3>로 계층 구조를 만든다. (네이버식 #연속 남발 금지)\n";
-  p += "- 첫 200자 안에 핵심 키워드를 1회, 전체에 2~3회 자연스럽게 노출한다. 억지 반복(키워드 스터핑) 금지.\n";
-  p += "- 추천 스니펫 점유: 질문형 키워드면 첫 문단에서 \"…하면 됩니다\" 형태의 직접 답을 40~60자로 제공한다.\n";
-  p += "- 100% 사실 기반. 추측 금지. 정확하지 않은 수치는 \"보통\", \"대략\"으로 표현한다.\n";
-  p += "- E-E-A-T 신호: 실제 경험·검증 과정을 1문장 언급하고(예: \"직접 신청 절차를 따라가며 정리했다\"), 수치 인용 시 출처(정부 사이트 등)를 문맥에 명시한다.\n";
-  p += "- 글 마지막에 \"최종 확인: 2026년 8월\" 형태의 확인일 문구를 넣어 신선도(freshness) 신호를 준다.\n";
-  p += "- 한 문단은 2~4문장. 긴 문장·어려운 용어 금지. 모바일에서도 읽기 쉬운 짧은 단락.\n";
-  p += "- 표(테이블) 1개 이상 필수. 리스트(- ) 활용으로 스캔 가능한 글을 만든다.\n";
-  p += "- 마케팅 문구·과장·클릭베이트 금지. 정직하고 구체적일수록 구글이 신뢰한다.\n";
-  p += "- 역피라미드 구조: 결론이 먼저, 상세가 뒤따른다. (체류 시간 = 애드센스 노출 증가)\n\n";
-
-  p += "## 5. 절대 금지 (네이버식 글쓰기 배제)\n";
-  p += "- 본문에 이모지(😀🎉🔥 등) 사용 금지 — 이모지는 검색 순위 신호에 도움이 되지 않는다.\n";
-  p += "- \"요즘 ~ 하시죠?\", \"ㅋㅋ\", \"~해보아요\" 같은 잡담형·구어체 남발 금지. 존댓말, 정보형 문어체 유지.\n";
-  p += "- 인사말·일상 대화·경조사성 서두 금지. 첫 문단부터 정보를 제공한다.\n";
-  p += "- \"네이버 지식백과식\" 무단 복사 금지. 독창적 표현으로 재구성한다.\n\n";
-
-  p += "## 6. 고단가 어휘 (애드센스 광고 단가를 높이는 LSI 키워드 — 문맥에 자연스럽게 2~3개 녹일 것, 나열 금지)\n";
-  p += "⚠️ 주의: 이 글의 주제와 무관한 분야의 고단가 어휘(병원비 등)를 억지로 넣지 마라. "
-     + "아래 어휘 중 이 글의 문맥에 자연스럽게 어울리는 것만 골라 사용한다.\n";
-  p += lsi.map(x => "- " + x).join("\n") + "\n\n";
-
-  if (newsLines){
-    p += "## 7. 팩트 데이터 (유일한 사실 근거 — Raw Data)\n";
-    p += "아래는 최신 뉴스다. **아래 제목·링크에서 확인되는 사실만** 글에 반영한다.\n";
-    p += "수치·금액·기간·요건이 필요하면 **링크를 열어 원문에서 확인**한 뒤 쓴다. 링크를 열 수 없으면 그 수치는 쓰지 말고 '※ 확인 필요'로 표시한다.\n";
-    p += "뉴스 제목을 그대로 베끼지 말고 문맥에 녹인다.\n";
-    p += newsLines + "\n\n";
-  } else {
-    p += "## 7. 최신 정보 (중요)\n";
-    p += "이 글의 주제와 관련된 최신 제도·정책·가격 변동이 있다면 웹 검색으로 확인해 반영하라. " + localToday() + " 기준 정보를 사용하고, 확실하지 않으면 날짜를 명시하지 말고 '※ 확인 필요'로 표시하라.\n\n";
-  }
-
-  if (linkLines){
-    p += "## 8. 내부 링크 (구글은 사이트 내 연결 구조를 중요시한다 — 문맥상 자연스러운 곳에 1~2곳)\n";
-    p += "아래 내 글 중 문맥과 가장 잘 맞는 것을 골라, 앵커 텍스트(링크에 걸리는 문장)에 관련 키워드를 포함해 \"관련 글\" 형태의 자연스러운 추천 문장과 함께 링크를 넣는다.\n";
-    p += linkLines + "\n\n";
-  } else {
-    p += "## 8. 내부 링크\n";
-    p += "이 글과 관련된 블로그의 다른 글(있다면)을 자연스럽게 추천하는 문장 1개를 넣는다. 없으면 생략.\n\n";
-  }
-
-  p += "## 9. 광고 친화 문맥 (애드센스 수익과 직결 — 자연스러움이 최우선)\n";
-  p += "- 정보 제공 → 비교/조건 제시 → \"아래에서 상세 비교·신청 방법 확인\" 흐름으로 자연스럽게 CTA를 만든다.\n";
-  p += "- 비교 대상이 있다면 \"가격 비교 사이트\", \"공식 신청 페이지\"를 문맥에 자연스럽게 언급한다.\n";
-  p += "- 클릭을 강요하지 말고, 독자가 유용하다고 느껴 스스로 클릭하게 만든다. (애드센스는 무효 클릭을 감지한다)\n";
-  p += "- CTA는 글의 앞(요약 직후) 1회, 중간(비교 표 직후) 1회, 마무리 1회 총 3회 이하로 배치한다.\n\n";
-
-  p += "## 10. 작성 프로세스 (반드시 3단계로 작업하라 — 환각 방지)\n";
-  p += "1단계(초안): 위 지시대로 초안을 작성한다.\n";
-  p += "2단계(팩트체크): 초안을 다시 읽으며 아래를 검증한다.\n";
-  p += "  a) 모든 수치·금액·기간·정책명·요건을 [팩트 데이터] 또는 웹 검색 결과와 대조한다.\n";
-  p += "  b) 계산이 있는 항목은 반드시 [근거]로 검증한다. 예: [월 40만 원 × 60개월 = 2,400만 원]\n";
-  p += "  c) 근거를 확인할 수 없는 수치는 '※ 확인 필요'로 표시하거나 '대략/보통'으로 완화한다.\n";
-  p += "  d) 오류가 보이면 그 자리에서 고친다.\n";
-  p += "3단계(최종본): 검증이 끝난 최종본만 출력하고, 맨 아래에 다음 한 줄을 덧붙인다:\n";
-  p += "  \"검토 결과: 수정 N건 / 확인 필요 항목: ...\"\n\n";
-
-  p += "## 11. 출력 형식\n";
-  p += "- 마크다운 사용 (# 제목, ##/### 소제목, **강조**, - 리스트, 표)\n";
-  p += "- 첫 줄: 글 제목 (# 제목 형식)\n";
-  p += "- 마지막에 \"메타 디스크립션: 100자 내외의 검색용 요약문\" 한 줄\n";
-  p += "- 마지막에 \"FAQ\" 섹션 (Q: / A: 형식, " + cfg.faqN + "개)\n\n";
-
-  p += "## 12. 품질 체크리스트 (작성을 마친 뒤 스스로 검토할 것)\n";
-  p += "- [ ] 모든 수치·계산에 [근거]가 명시됐는가 (예: [월 40만 원 × 60개월 = 2,400만 원])\n";
-  p += "- [ ] 확인 불가한 수치는 '※ 확인 필요'로 표시하거나 '대략'으로 완화했는가\n";
-  p += "- [ ] 틀린 수치·사실이 없는가? 확실하지 않으면 \"보통\", \"대략\"으로 완화했는가\n";
-  p += "- [ ] 첫 문단에 40~60자의 직접 답(스니펫용)이 있는가\n";
-  p += "- [ ] H1 1개 / H2·H3 계층 구조가 맞는가\n";
-  p += "- [ ] 핵심 키워드가 제목·첫 문단·h2 하나에 들어갔는가\n";
-  p += "- [ ] 이모지·잡담형 표현이 없는가\n";
-  p += "- [ ] 표(테이블)가 1개 이상 들어갔는가\n";
-  p += "- [ ] 확인일 문구(\"최종 확인: 2026년 8월\")가 들어갔는가\n";
-  p += "- [ ] FAQ 질문이 실제 검색창에서 쓰는 말투인가 (예: \"~ 어떻게 되나요?\")\n";
-  p += "- [ ] CTA가 강요 없이 3회 이하로 자연스러운가\n";
-  p += "- [ ] 위 지시(구조·어휘·형식)를 모두 지켰는가\n\n";
-
-  p += "지시를 모두 지켰다면 이제 작성하라.\n";
-
-  return p;
-}
-
+/* 핵심 프롬프트 — 원문(공식 공지·신문기사)을 애드센스 인증·구글 SEO 최적화 블로그 글로 변환 */
 /* 원문에서 게시일 자동 감지 — "2026-06-11", "2026. 6. 15.", "2026년 6월 11일" 등 */
 function detectDocDate(text){
   const t = String(text || "");
@@ -1096,70 +747,67 @@ function detectDocDate(text){
   return "";
 }
 
-/* 라이트 모드 — 사람이 실시간으로 가져온 원문(정책 공지·신문기사)을 블로그 형태로 변환.
-   원문의 사실을 100% 유지하는 것이 최우선 (AI 환각·바꿔치기 방지) */
+function parseLinks(raw){
+  const out = [];
+  for (const line of String(raw || "").split(/\r?\n/)){
+    const t = line.trim();
+    if (!t) continue;
+    let m = t.match(/^(.*?)\s*[|,]\s*(https?:\/\/\S+)$/);
+    if (!m) m = t.match(/^(.*?)\s+(https?:\/\/\S+)$/);
+    if (m) out.push({title: m[1].trim(), url: m[2].trim()});
+  }
+  return out;
+}
+
 function buildLitePrompt(cfg){
-  const kw = cfg.keyword || cfg.topic || "";
-  const intent = cfg.intent || detectIntent(kw);
-  const cat = cfg.category || detectCategory(kw);
-  const persona = (cat && PERSONAS[cat.id]) || ("'" + kw + "' 분야 실무 경험 10년 차 전문가");
+  const topic = cfg.topic || "";
+  const cat = cfg.category || detectCategory(topic);
+  const persona = (cat && PERSONAS[cat.id]) || ("'" + topic + "' 분야 실무 경험 10년 차 전문가");
   const lsi = (cat ? cat.lsi : []).concat(GENERIC_LSI).slice(0, 8);
   const faqN = cfg.faqN || 5;
   const len = cfg.len || 2500;
   const docDate = cfg.docDate || "";
+  const linkLines = (cfg.links && cfg.links.length)
+    ? cfg.links.slice(0, 5).map(l => "- " + l.title + " : " + l.url).join("\n")
+    : "";
 
   let p = "";
   p += "# 역할\n";
-  p += "너는 " + persona + "이자 구글 SEO 블로그 라이터다. 목표는 구글 검색 상단 노출과 애드센스 수익이다.\n\n";
+  p += "너는 " + persona + "이자 구글 SEO·애드센스 최적화 블로그 라이터다. 목표는 두 가지다: 구글 검색 상단 노출, 애드센스 승인·수익 최적화.\n\n";
 
-  p += "# 글 주제 (사용자 입력)\n";
-  p += (cfg.topic || kw) + "\n";
+  p += "# 글 주제\n";
+  p += topic + "\n";
   if (cfg.topicDesc) p += "- 세부 요구사항: " + cfg.topicDesc + "\n";
   p += "\n";
 
   p += "# 사용자가 공식 사이트/기사에서 가져온 원문 (사실의 100% 출처)\n";
-  p += (cfg.factData || "(원문 없음)") + "\n";
-  if (docDate) p += "\n(원문에서 감지된 게시일: " + docDate + ")\n";
+  p += cfg.factData + "\n";
+  if (docDate) p += "\n(원문 게시일: " + docDate + ")\n";
   p += "\n";
 
-  p += "# 변환 규칙 (반드시 준수 — 정확도 최우선)\n";
-  p += "- 원문에 있는 사실(정책명·신청기간·지원대상·금액·서류·신청처·날짜)은 **100% 그대로** 옮긴다. 추가·변경·생략 금지.\n";
-  p += "- 원문에 없는 내용(금액·조건·수치 등)은 절대 추측으로 만들지 말고 '※ 확인 필요'로 표시한다.\n";
-  p += "- 원문 기준일(" + (docDate || "확인 불가") + ") 이후 변경 여부는 웹 검색으로 확인 가능하면 반영하고, 없으면 원문 기준을 유지한다.\n";
-  p += "- 원문의 공식 신청처(링크·사이트명)는 본문에 그대로 명시한다.\n";
-  p += "- 블로그 형식으로 재구성: # 제목 → 도입(핵심 요약 40~60자, 스니펫용) → ## 신청기간 → ## 지원대상 → ## 신청방법·제출서류 → ## 주의사항 → ## FAQ(Q:/A: " + faqN + "개) → 마무리 + CTA 1문장.\n";
-  p += "- 이해를 돕는 표(비교표·정리표) 1개 이상. 단, 표 내용도 원문의 사실만 사용.\n";
-  p += "- 첫 200자에 핵심 키워드 1회, 전체 2~3회. 문단 2~4문장, 존댓말 문어체, 이모지·잡담 금지.\n";
-  p += "- 고단가 어휘를 문맥에 자연스럽게 2~3개: " + lsi.join(", ") + "\n\n";
+  p += "# 원문 처리 규칙 (정확도 최우선)\n";
+  p += "- 원문의 사실(정책명·기간·대상·금액·서류·신청처·날짜)은 100% 그대로 옮긴다. 추가·변경·생략 금지.\n";
+  p += "- 원문에 없는 내용은 절대 추측하지 말고 '※ 확인 필요'로 표시한다.\n";
+  p += "- 원문 기준일(" + (docDate || "확인 불가") + ") 이후 변경은 웹 검색으로 확인 가능하면 반영, 없으면 원문 기준 유지.\n";
+  p += "- 공식 신청처(링크·사이트명)는 본문에 그대로 명시한다.\n\n";
 
-  p += "# 출력\n";
-  p += "- 분량 약 " + len + "자. 마크다운 (# 제목, ##/###, | 표 |, - 리스트).\n";
-  p += "- 첫 줄: # 글 제목. 마지막: '메타 디스크립션: ...' 한 줄 + FAQ 섹션.\n";
-  return p;
-}
-
-/* 2차 검증용 — AI가 작성한 초안을 검토·수정하게 하는 팩트체크 프롬프트 */
-function buildFactCheckPrompt(cfg){
-  const today = cfg.today || localToday();
-  const newsLines = (cfg.news && cfg.news.length)
-    ? cfg.news.map(n => "- " + n.title + (n.press ? " (" + n.press + (n.date ? ", " + n.date : "") + ")" : "") +
-        (n.link ? "\n  링크: " + n.link : "")).join("\n")
-    : "- (팩트 데이터 없음 — 수치는 웹 검색으로 확인)";
-  let p = "";
-  p += "# 🔍 팩트체크 및 수정 지시 (2차 검증)\n\n";
-  p += "아래 [초안]을 팩트체크하고, 오류를 수정한 [최종 수정본]을 출력하라.\n\n";
-  p += "## 검증 규칙\n";
-  p += "1. 모든 수치·금액·기간·정책명·자격 요건을 [팩트 데이터]와 대조한다.\n";
-  p += "2. 계산이 있는 항목은 반드시 [근거]로 재검증한다. 예: [월 40만 원 × 60개월 = 2,400만 원]\n";
-  p += "3. 근거를 확인할 수 없는 수치는 절대 유지하지 말고, '※ 확인 필요'로 표시하거나 '대략/보통'으로 완화한다.\n";
-  p += "4. 오늘 날짜는 " + today + "이다. 학습 데이터보다 최신인 정책·금액이면 [팩트 데이터]의 링크를 열어 확인하거나, 그 수치를 '※ 확인 필요'로 표시한다.\n";
-  p += "5. 문장·표현의 오류(어색한 표현, 비문, 중복)도 함께 수정한다.\n";
-  p += "6. 수정 내역은 마지막에 '수정 내역: 1) ... 2) ...' 형태로 3줄 이내 요약한다.\n\n";
-  p += "## 팩트 데이터 (유일한 사실 근거)\n" + newsLines + "\n\n";
-  p += "## 초안\n" + (cfg.draft || "(초안 없음)") + "\n\n";
-  p += "## 출력 형식\n";
-  p += "1. '## 최종 수정본' 제목 아래, 수정이 끝난 전체 글을 마크다운으로 출력한다.\n";
-  p += "2. 그 아래 '## 수정 내역'을 3줄 이내로 출력한다.\n";
+  p += "# 애드센스 인증·구글 SEO 최적화 구성 요소 (반드시 포함)\n";
+  p += "- E-E-A-T 신뢰: 정확한 사실만 사용하고, 글 하단에 출처를 명시한다 — \"본문은 [출처 사이트명]의 [게시일] 공지를 바탕으로 정리했습니다.\"\n";
+  p += "- 구조: # 제목(H1 1개) → 도입(핵심 요약 40~60자, 추천 스니펫용) → ## 신청기간 → ## 지원대상 → ## 신청방법·제출서류 → ## 주의사항 → ## FAQ(Q:/A: " + faqN + "개) → 마무리 + CTA 1문장.\n";
+  p += "- 비교·정리 표 1개 이상 (표 내용도 원문의 사실만 사용).\n";
+  p += "- 핵심 키워드: 제목·첫 200자·H2 하나에 자연스럽게 1회씩 (전체 2~3회, 억지 반복 금지).\n";
+  p += "- 모바일 가독성: 문단 2~4문장, 존댓말 문어체, 이모지·잡담형 금지.\n";
+  p += "- CTA(공식 신청처 링크 유도)는 자연스럽게 3회 이하.\n";
+  p += "- 작성 기준일 표시(예: " + localToday() + " 기준) — 신선도 신호.\n";
+  p += "- 고단가 어휘를 문맥에 자연스럽게 2~3개: " + lsi.join(", ") + "\n";
+  if (linkLines){
+    p += "\n# 내부 링크 (문맥에 자연스러운 곳 1곳)\n";
+    p += "아래 내 글 중 가장 어울리는 것 1개를 앵커 텍스트와 함께 추천 문장으로 삽입한다.\n";
+    p += linkLines + "\n";
+  }
+  p += "\n# 출력\n";
+  p += "- 분량 약 " + len + "자, 마크다운(# 제목, ##/### 소제목, | 표 |, - 리스트).\n";
+  p += "- 첫 줄: # 글 제목. 마지막: '메타 디스크립션: ...' 100자 내외 한 줄 + FAQ 섹션.\n";
   return p;
 }
 
@@ -1200,8 +848,6 @@ function saveSettings(){
 }
 
 let proxyOk = false;
-let newsCache = {};
-let lastNews = []; // 마지막 프롬프트 생성 때 수집한 뉴스 → 팩트체크 프롬프트에 재사용
 
 function toast(msg){
   const t = $("#toast");
@@ -1240,201 +886,44 @@ async function checkProxy(){
   }
 }
 
-async function getSuggestions(kw){
-  // 1) 로컬 프록시
-  if (proxyOk){
-    try{
-      const j = await proxyFetch("/autocomplete?q=" + encodeURIComponent(kw));
-      return j.keywords || [];
-    }catch(e){}
-  }
-  // 2) 공용 CORS 미러 (설치 없이 시도)
-  try{
-    const url = "https://suggestqueries.google.com/complete/search?client=firefox&hl=ko&gl=kr&q=" + encodeURIComponent(kw);
-    const res = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(url));
-    if (res.ok){
-      const data = await res.json();
-      if (Array.isArray(data) && data[1]) return data[1];
-    }
-  }catch(e){}
-  return null; // 실패
-}
-
-async function getNews(kw){
-  if (!proxyOk) return null;
-  if (kw in newsCache) return newsCache[kw];
-  try{
-    const j = await proxyFetch("/news?q=" + encodeURIComponent(kw));
-    newsCache[kw] = j;
-    return j;
-  }catch(e){
-    return null;
-  }
-}
-
-/* ---------- ① 키워드 분석 ---------- */
-async function analyzeKeywords(){
-  const seed = $("#kwInput").value.trim();
-  if (!seed){ toast("시드 키워드를 입력하세요"); return; }
-  const loading = $("#kwLoading");
-  const doNews = $("#kwNewsToggle").checked;
-  loading.hidden = false;
-  loading.textContent = "🔍 구글 수요 신호(자동완성) 수집 중…";
-
-  let suggestions = await getSuggestions(seed);
-  if (suggestions === null){
-    loading.textContent = "⚠️ 구글 자동완성 연결 실패 — 돈 냄새 확장 키워드만 사용합니다 (proxy.py 실행 시 전체 기능 활성화)";
-  } else {
-    loading.textContent = "🔍 구글 수요 키워드 " + (suggestions.length + 1) + "개 확보 → 점수 산정 중…";
-  }
-  const cat = detectCategory(seed);
-  const candidates = expandCandidates(seed, suggestions || [], cat);
-
-  const newsMap = {};
-    if (doNews && proxyOk){
-      for (let i = 0; i < candidates.length; i++){
-        loading.textContent = "📰 구글 뉴스 분석 중 (" + (i+1) + "/" + candidates.length + ") — " + candidates[i];
-        const n = await getNews(candidates[i]);
-        if (n) newsMap[candidates[i]] = typeof n.total === "number" ? n.total : (n.items.length >= 10 ? 15 : n.items.length);
-      }
-    } else if (doNews && !proxyOk){
-      loading.textContent = "⚠️ 프록시 미연결 → 구글 뉴스 분석 생략. 점수는 의도·카테고리 기준입니다.";
-    }
-
-  const results = candidates.map(kw => {
-    const newsCount = kw in newsMap ? newsMap[kw] : null;
-    return {kw, newsCount, ...scoreKeyword(kw, newsCount)};
-  }).sort((a, b) => b.score - a.score);
-
-  renderKwList(results);
-  loading.hidden = true;
-  $("#kwResultCard").hidden = false;
-  $("#kwSummary").innerHTML =
-    '<span class="badge b-cat">후보 ' + results.length + "개</span>" +
-    '<span class="badge b-cat">' + (proxyOk ? "🟢 구글 수요 + 구글 뉴스 분석 완료" : "🟡 구글 뉴스 분석 생략") + "</span>" +
-    '<span class="badge b-cat">🍯 상위 3개가 수익성 1순위</span>';
-}
-
-function renderKwList(results){
-  const box = $("#kwList");
-  box.innerHTML = "";
-  results.forEach((r, i) => {
-    const card = document.createElement("div");
-    card.className = "kw-card" + (i < 3 ? " top" : "");
-    const newsBadge = r.newsCount === null
-      ? '<span class="badge b-news-none">구글뉴스 ?</span>'
-      : (r.newsCount <= 10
-          ? '<span class="badge b-news-low">구글 뉴스 ' + r.newsCount + "건</span>"
-          : '<span class="badge b-news-hi">구글 뉴스 ' + r.newsCount + "건 이상 · 경쟁↑</span>");
-    card.innerHTML =
-      '<div class="kw-head">' +
-        '<span class="kw-text">' + (i < 3 ? '<span class="kw-rank">TOP ' + (i+1) + "</span> " : "") +
-        escapeHtml(r.kw) + "</span>" +
-        '<span class="score">🍯 ' + r.score + '<span class="of">/100 · ' + r.grade + "</span></span>" +
-      "</div>" +
-      '<div class="kw-badges">' +
-        '<span class="badge b-intent-' + r.intent.id[0] + '">' + r.intent.emoji + " " + r.intent.name + "</span>" +
-        (r.cat ? '<span class="badge b-cat">' + r.cat.name + " (+" + r.cat.weight + ")</span>" : "") +
-        newsBadge +
-      "</div>" +
-      '<div class="kw-bar"><div style="width:' + r.score + '%"></div></div>' +
-      '<div class="kw-foot">' +
-        '<span class="kw-reason">' + escapeHtml(r.reasons.join(" · ")) + "</span>" +
-        '<button class="btn btn-sm btn-primary kw-pick" data-kw="' + escapeAttr(r.kw) + '">🧠 프롬프트 만들기</button>' +
-      "</div>";
-    box.appendChild(card);
-  });
-}
-
-function escapeHtml(s){
-  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-}
-function escapeAttr(s){ return escapeHtml(s); }
-
 /* ---------- ② 프롬프트 생성 ---------- */
-function setPtMode(){
-  const t = $("#ptModeTopic").checked;
-  $("#ptKwRow").hidden = t;
-  $("#ptTopicPanel").hidden = !t;
-}
-
-async function generatePrompt(){
-  const topicMode = $("#ptModeTopic").checked;
-  let kw, topicDesc = "", factData = "";
-  if (topicMode){
-    kw = $("#ptTopic").value.trim();
-    if (!kw){ toast("글 주제를 입력하세요"); return; }
-    topicDesc = $("#ptTopicDesc").value.trim();
-    factData = $("#ptFactData").value.trim();
-    $("#ptKeyword").value = kw; // 변환(③)·메타 탭에서도 사용되도록 동기화
-  } else {
-    kw = $("#ptKeyword").value.trim();
-    if (!kw){ toast("키워드를 입력하세요"); return; }
-  }
-  const intent = detectIntent(kw);
-  const cat = detectCategory(kw);
-  const sc = scoreKeyword(kw, null);
-
-  $("#ptInfo").innerHTML =
-    '<span class="badge b-intent-' + intent.id[0] + '">' + intent.emoji + " " + intent.name + "</span>" +
-    (cat ? '<span class="badge b-cat">' + cat.name + " +" + cat.weight + "</span>" : "") +
-    '<span class="badge b-cat">🍯 예상 점수 ' + sc.score + "</span>" +
-    '<span class="badge b-cat">' + (topicMode ? "✍️ 주제 모드" : "Google SEO 모드") + "</span>";
-
-  let news = null;
-  const newsBox = $("#ptNewsBox");
-  // 라이트 모드(사람이 자료 제공)에서는 툴의 뉴스 수집을 건너뛴다 — 사람의 자료가 유일한 사실 근거
-  if (factData){ newsBox.hidden = true; }
-  else if ($("#ptNews").checked){
-    if (proxyOk){
-      newsBox.hidden = false;
-      newsBox.innerHTML = "<b>📰 최신 뉴스 수집 중…</b>";
-      const n = await getNews(kw);
-      newsBox.hidden = true;
-      if (n && n.items && n.items.length){
-        news = n.items;
-        newsBox.hidden = false;
-        newsBox.innerHTML = "<b>📰 구글 뉴스 " + n.items.length + "건 (팩트체크용 · 프롬프트에 포함됨)</b><ul>" +
-          n.items.map(x => "<li>" + escapeHtml(x.title) + (x.press ? " — " + escapeHtml(x.press) : "") +
-            (x.date ? " <span class=\"muted\">[" + escapeHtml(x.date) + "]</span>" : "") + "</li>").join("") + "</ul>";
-      } else {
-        newsBox.hidden = false;
-        newsBox.innerHTML = "<b>📰 최신 뉴스 없음/수집 실패</b> — AI가 직접 웹 검색하도록 지시합니다.";
-      }
-    } else {
-      newsBox.hidden = false;
-      newsBox.innerHTML = "<b>🟡 프록시 미연결</b> — 프롬프트에 \"웹 검색으로 최신 정보 확인\" 지시문을 넣습니다.";
-    }
-  }
-
-  lastNews = news || []; // 팩트체크 프롬프트에서 재사용
-  const links = $("#ptLinks").checked ? parseLinks(S.links) : [];
-  const len = parseInt($("#ptLen").value, 10);
-  const faqN = parseInt($("#ptFaq").value, 10);
-  const tone = $("#ptTone").value;
-  // 라이트 모드: 사람이 실시간 자료(원문)를 제공 → 원문 100% 유지 변환 프롬프트 (게시일 자동 감지)
-  const prompt = factData
-    ? buildLitePrompt({keyword: kw, topic: kw, topicDesc, factData,
-                       docDate: detectDocDate(factData),
-                       intent, category: cat, len, tone, faqN})
-    : buildPrompt({keyword: kw, intent, category: cat, len, tone, faqN,
-                   news, links, topic: topicMode ? kw : "", topicDesc});
-
-  $("#ptOutput").value = prompt;
-  $("#ptStat").textContent = (factData ? "⚡ 라이트 프롬프트 · " : "") + "총 " + prompt.length.toLocaleString() + "자" +
-    (factData ? " · 자료 기반 간결형" : (prompt.length >= 2000 ? " · 2,000자 이상 ✓" : " · 짧음(2,000자 권장)"));
-  $("#ptResult").hidden = false;
-  await copyText(prompt, "프롬프트 (자동 복사)"); // 생성 즉시 클립보드에 복사 → Gemini에 바로 붙여넣기
-  toast("생성 완료! AI에 붙여넣기만 하세요");
-}
 
 /* ---------- ③ 역공급 변환 ---------- */
 let converted = null; // {title, meta, slug, faq, html, htmlWithAds, schema}
 
+async function generatePrompt(){
+  const factData = $("#ptFactData").value.trim();
+  if (!factData){ toast("원문을 붙여넣으세요 (공식 사이트·신문기사)"); return; }
+  const topic = $("#ptTopic").value.trim() || factData.split(/\n/)[0].replace(/^#+\s*/, "").slice(0, 50);
+  const desc = $("#ptTopicDesc").value.trim();
+  const cat = detectCategory(topic);
+  const docDate = detectDocDate(factData);
+  const links = parseLinks(S.links);
+
+  const prompt = buildLitePrompt({
+    topic, topicDesc: desc, factData, docDate,
+    category: cat,
+    len: parseInt($("#ptLen").value, 10),
+    faqN: parseInt($("#ptFaq").value, 10),
+    links,
+  });
+
+  $("#ptInfo").innerHTML =
+    (cat ? '<span class="badge b-cat">' + cat.name + ' 페르소나</span>' : '') +
+    '<span class="badge b-cat">✨ 애드센스 인증 최적화</span>' +
+    (docDate ? '<span class="badge b-cat">📅 게시일 감지: ' + docDate + "</span>" : "");
+
+  $("#ptOutput").value = prompt;
+  $("#ptStat").textContent = "프롬프트 " + prompt.length.toLocaleString() + "자 · 자동 복사됨";
+  $("#ptResult").hidden = false;
+  await copyText(prompt, "프롬프트 (자동 복사)");
+  toast("생성 완료! AI에 붙여넣기만 하세요");
+}
+
 async function convertArticle(){
   const text = $("#pbInput").value;
   if (!text.trim()){ toast("AI가 쓴 글을 먼저 붙여넣으세요"); return; }
-  const kw = $("#ptKeyword").value.trim();
+  const kw = $("#ptTopic").value.trim();
 
   const html = mdToHtml(text);
   const adsOn = $("#pbAds").checked;
@@ -1643,7 +1132,7 @@ async function copyText(text, label){
 function bindEvents(){
   // 탭 전환 + 파이프라인 진행 표시
   const updatePipeline = (tabId) => {
-    const active = {tab1: [0,1,2,3,4], tab2: [5], tab3: [6,7], tab4: [], tab5: []}[tabId] || [];
+    const active = {tab2: [1], tab3: [2,3], tab4: []}[tabId] || [];
     document.querySelectorAll(".pipe-step").forEach(s => {
       s.classList.toggle("active", active.includes(parseInt(s.dataset.step, 10)));
     });
@@ -1663,38 +1152,9 @@ function bindEvents(){
     };
   });
 
-  $("#kwAnalyzeBtn").onclick = analyzeKeywords;
-  $("#kwInput").addEventListener("keydown", e => { if (e.key === "Enter") analyzeKeywords(); });
-
-  // 키워드 카드 → 프롬프트 (이벤트 위임)
-  $("#kwList").addEventListener("click", e => {
-    const btn = e.target.closest(".kw-pick");
-    if (!btn) return;
-    $("#ptKeyword").value = btn.dataset.kw;
-    document.querySelector('[data-tab="tab2"]').click();
-    generatePrompt();
-  });
-
   $("#ptGenBtn").onclick = generatePrompt;
-  $("#ptKeyword").addEventListener("keydown", e => { if (e.key === "Enter") generatePrompt(); });
   $("#ptTopic").addEventListener("keydown", e => { if (e.key === "Enter") generatePrompt(); });
-  $("#ptModeKw").onchange = setPtMode;
-  $("#ptModeTopic").onchange = setPtMode;
   $("#ptCopyBtn").onclick = () => copyText($("#ptOutput").value, "프롬프트");
-  $("#ptBackBtn").onclick = () => document.querySelector('[data-tab="tab1"]').click();
-
-  // 팩트체크 프롬프트
-  $("#fcGenBtn").onclick = () => {
-    const draft = $("#fcDraft").value.trim();
-    if (!draft){ toast("AI가 쓴 초안을 먼저 붙여넣으세요"); return; }
-    const kw = $("#ptKeyword").value.trim() || "이 글의 주제";
-    const fc = buildFactCheckPrompt({keyword: kw, draft, news: lastNews});
-    $("#fcOutput").value = fc;
-    $("#fcStat").textContent = "팩트체크 프롬프트 " + fc.length.toLocaleString() + "자";
-    $("#fcResult").hidden = false;
-    toast("팩트체크 프롬프트 생성 완료");
-  };
-  $("#fcCopyBtn").onclick = () => copyText($("#fcOutput").value, "팩트체크 프롬프트");
 
   $("#pbConvertBtn").onclick = convertArticle;
   $("#pbHtmlCopy").onclick = () => copyText($("#pbHtml").value, "HTML");
